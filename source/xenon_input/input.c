@@ -65,13 +65,246 @@ void getKeys(int Control, BUTTONS *Keys)
 
     b.START_BUTTON=c->start;
         
-    b.A_BUTTON=c->a;
-    b.B_BUTTON=c->b;
-    b.Z_TRIG=c->x || c->y || (c->rt>TRIGGER_THRESHOLD) || (c->lt>TRIGGER_THRESHOLD);
-        
-    b.L_TRIG=c->lb;
-    b.R_TRIG=c->rb;
-     
+	switch(a_mode)
+	{
+		case 'a':
+			b.A_BUTTON=c->a;
+			break;
+		case 'b':
+			b.B_BUTTON=c->a;
+			break;
+		case 'l':
+			b.L_TRIG=c->a;
+			break;
+		case 'r':
+			b.R_TRIG=c->a;
+			break;
+		case 'z':
+			b.Z_TRIG=c->a;
+			break;
+		case 'c':
+			b.U_CBUTTON=c->a;
+			break;
+		case 'd':
+			b.R_CBUTTON=c->a;
+			break;
+		case 'e':
+			b.D_CBUTTON=c->a;
+			break;
+		case 'f':
+			b.L_CBUTTON=c->a;
+			break;
+	}
+	switch(b_mode)
+	{
+		case 'a':
+			b.A_BUTTON=c->b;
+			break;
+		case 'b':
+			b.B_BUTTON=c->b;
+			break;
+		case 'l':
+			b.L_TRIG=c->b;
+			break;
+		case 'r':
+			b.R_TRIG=c->b;
+			break;
+		case 'z':
+			b.Z_TRIG=c->b;
+			break;
+		case 'c':
+			b.U_CBUTTON=c->b;
+			break;
+		case 'd':
+			b.R_CBUTTON=c->b;
+			break;
+		case 'e':
+			b.D_CBUTTON=c->b;
+			break;
+		case 'f':
+			b.L_CBUTTON=c->b;
+			break;
+	}
+	switch(x_mode)
+	{
+		case 'a':
+			b.A_BUTTON=c->x;
+			break;
+		case 'b':
+			b.B_BUTTON=c->x;
+			break;
+		case 'l':
+			b.L_TRIG=c->x;
+			break;
+		case 'r':
+			b.R_TRIG=c->x;
+			break;
+		case 'z':
+			b.Z_TRIG=c->x;
+			break;
+		case 'c':
+			b.U_CBUTTON=c->x;
+			break;
+		case 'd':
+			b.R_CBUTTON=c->x;
+			break;
+		case 'e':
+			b.D_CBUTTON=c->x;
+			break;
+		case 'f':
+			b.L_CBUTTON=c->x;
+			break;
+	}
+	switch(y_mode)
+	{
+		case 'a':
+			b.A_BUTTON=c->y;
+			break;
+		case 'b':
+			b.B_BUTTON=c->y;
+			break;
+		case 'l':
+			b.L_TRIG=c->y;
+			break;
+		case 'r':
+			b.R_TRIG=c->y;
+			break;
+		case 'z':
+			b.Z_TRIG=c->y;
+			break;
+		case 'c':
+			b.U_CBUTTON=c->y;
+			break;
+		case 'd':
+			b.R_CBUTTON=c->y;
+			break;
+		case 'e':
+			b.D_CBUTTON=c->y;
+			break;
+		case 'f':
+			b.L_CBUTTON=c->y;
+			break;
+	}
+	switch(lt_mode)
+	{
+		case 'a':
+			b.A_BUTTON=(c->lt>TRIGGER_THRESHOLD);
+			break;
+		case 'b':
+			b.B_BUTTON=(c->lt>TRIGGER_THRESHOLD);
+			break;
+		case 'l':
+			b.L_TRIG=(c->lt>TRIGGER_THRESHOLD);
+			break;
+		case 'r':
+			b.R_TRIG=(c->lt>TRIGGER_THRESHOLD);
+			break;
+		case 'z':
+			b.Z_TRIG=(c->lt>TRIGGER_THRESHOLD);
+			break;
+		case 'c':
+			b.U_CBUTTON=(c->lt>TRIGGER_THRESHOLD);
+			break;
+		case 'd':
+			b.R_CBUTTON=(c->lt>TRIGGER_THRESHOLD);
+			break;
+		case 'e':
+			b.D_CBUTTON=(c->lt>TRIGGER_THRESHOLD);
+			break;
+		case 'f':
+			b.L_CBUTTON=(c->lt>TRIGGER_THRESHOLD);
+			break;
+	}
+	switch(rt_mode)
+	{
+		case 'a':
+			b.A_BUTTON=(c->rt>TRIGGER_THRESHOLD);
+			break;
+		case 'b':
+			b.B_BUTTON=(c->rt>TRIGGER_THRESHOLD);
+			break;
+		case 'l':
+			b.L_TRIG=(c->rt>TRIGGER_THRESHOLD);
+			break;
+		case 'r':
+			b.R_TRIG=(c->rt>TRIGGER_THRESHOLD);
+			break;
+		case 'z':
+			b.Z_TRIG=(c->rt>TRIGGER_THRESHOLD);
+			break;
+		case 'c':
+			b.U_CBUTTON=(c->rt>TRIGGER_THRESHOLD);
+			break;
+		case 'd':
+			b.R_CBUTTON=(c->rt>TRIGGER_THRESHOLD);
+			break;
+		case 'e':
+			b.D_CBUTTON=(c->rt>TRIGGER_THRESHOLD);
+			break;
+		case 'f':
+			b.L_CBUTTON=(c->rt>TRIGGER_THRESHOLD);
+			break;
+	}
+	switch(lb_mode)
+	{
+		case 'a':
+			b.A_BUTTON=c->lb;
+			break;
+		case 'b':
+			b.B_BUTTON=c->lb;
+			break;
+		case 'l':
+			b.L_TRIG=c->lb;
+			break;
+		case 'r':
+			b.R_TRIG=c->lb;
+			break;
+		case 'z':
+			b.Z_TRIG=c->lb;
+			break;
+		case 'c':
+			b.U_CBUTTON=c->lb;
+			break;
+		case 'd':
+			b.R_CBUTTON=c->lb;
+			break;
+		case 'e':
+			b.D_CBUTTON=c->lb;
+			break;
+		case 'f':
+			b.L_CBUTTON=c->lb;
+			break;
+	}
+	switch(rb_mode)
+	{
+		case 'a':
+			b.A_BUTTON=c->rb;
+			break;
+		case 'b':
+			b.B_BUTTON=c->rb;
+			break;
+		case 'l':
+			b.L_TRIG=c->rb;
+			break;
+		case 'r':
+			b.R_TRIG=c->rb;
+			break;
+		case 'z':
+			b.Z_TRIG=c->rb;
+			break;
+		case 'c':
+			b.U_CBUTTON=c->rb;
+			break;
+		case 'd':
+			b.R_CBUTTON=c->rb;
+			break;
+		case 'e':
+			b.D_CBUTTON=c->rb;
+			break;
+		case 'f':
+			b.L_CBUTTON=c->rb;
+			break;
+	}
 	
 	switch(pad_mode)
 	{

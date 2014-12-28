@@ -326,6 +326,86 @@ void cls_GUI()
 	Browser.End();
 }
 
+//a - a
+//b - b
+//l - l
+//r  - r
+//z - z
+//c-up - c
+//c-right - d
+//c-down - e
+//c-left - f
+char a_mode = 'a';
+char b_mode = 'b';
+char x_mode = 'z';
+char y_mode = 'z';
+char lt_mode = 'z';
+char rt_mode = 'z';
+char lb_mode = 'l';
+char rb_mode = 'r';
+
+void remap(char z)
+{
+    struct controller_data_s c = {0};
+
+    usb_do_poll();
+    get_controller_data(&c, 0);
+
+    if(c.a)a_mode = z;
+    if(c.b)b_mode = z;
+    if(c.x)x_mode = z;
+    if(c.y)y_mode = z;
+    if(c.lt)lt_mode = z;
+    if(c.rt)rt_mode = z;
+    if(c.lb)lb_mode = z;
+    if(c.rb)rb_mode = z;
+}
+
+void remapA(void * other)
+{
+    remap('a');
+}
+
+void remapB(void * other)
+{
+    remap('b');
+}
+
+void remapL(void * other)
+{
+    remap('l');
+}
+
+void remapR(void * other)
+{
+    remap('r');
+}
+
+void remapZ(void * other)
+{
+    remap('z');
+}
+
+void remapCup(void * other)
+{
+    remap('c');
+}
+
+void remapCright(void * other)
+{
+    remap('d');
+}
+
+void remapCdown(void * other)
+{
+    remap('e');
+}
+
+void remapCleft(void * other)
+{
+    remap('f');
+}
+
 void do_GUI()
 {
 
@@ -380,7 +460,84 @@ void do_GUI()
 
 	{
         lpBrowserActionEntry action = new BrowserActionEntry();
-        action->name = "-";
+        action->name = "---";
+        action->action = NULL;
+        action->param = NULL;
+        Browser.AddAction(action);
+    }
+	{
+        lpBrowserActionEntry action = new BrowserActionEntry();
+        action->name = "Remap buttons (press back to cancel)";
+        action->action = NULL;
+        action->param = NULL;
+        Browser.AddAction(action);
+    }
+	{
+        lpBrowserActionEntry action = new BrowserActionEntry();
+        action->name = "Remap A";
+        action->action = remapA;
+        action->param = NULL;
+        Browser.AddAction(action);
+    }
+	{
+        lpBrowserActionEntry action = new BrowserActionEntry();
+        action->name = "Remap B";
+        action->action = remapB;
+        action->param = NULL;
+        Browser.AddAction(action);
+    }
+	{
+        lpBrowserActionEntry action = new BrowserActionEntry();
+        action->name = "Remap L";
+        action->action = remapL;
+        action->param = NULL;
+        Browser.AddAction(action);
+    }
+	{
+        lpBrowserActionEntry action = new BrowserActionEntry();
+        action->name = "Remap R";
+        action->action = remapR;
+        action->param = NULL;
+        Browser.AddAction(action);
+    }
+	{
+        lpBrowserActionEntry action = new BrowserActionEntry();
+        action->name = "Remap Z";
+        action->action = remapZ;
+        action->param = NULL;
+        Browser.AddAction(action);
+    }
+	{
+        lpBrowserActionEntry action = new BrowserActionEntry();
+        action->name = "Remap C-Up";
+        action->action = remapCup;
+        action->param = NULL;
+        Browser.AddAction(action);
+    }
+	{
+        lpBrowserActionEntry action = new BrowserActionEntry();
+        action->name = "Remap C-Right";
+        action->action = remapCright;
+        action->param = NULL;
+        Browser.AddAction(action);
+    }
+	{
+        lpBrowserActionEntry action = new BrowserActionEntry();
+        action->name = "Remap C-Down";
+        action->action = remapCdown;
+        action->param = NULL;
+        Browser.AddAction(action);
+    }
+	{
+        lpBrowserActionEntry action = new BrowserActionEntry();
+        action->name = "Remap C-Left";
+        action->action = remapCleft;
+        action->param = NULL;
+        Browser.AddAction(action);
+    }
+	{
+        lpBrowserActionEntry action = new BrowserActionEntry();
+        action->name = "---";
         action->action = NULL;
         action->param = NULL;
         Browser.AddAction(action);

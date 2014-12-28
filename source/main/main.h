@@ -46,5 +46,13 @@ extern int use_expansion;
 extern int pad_mode;
 extern char g_WorkingDir[];
 
+extern char a_mode;
+extern char b_mode;
+extern char x_mode;
+extern char y_mode;
+extern char lt_mode;
+extern char rt_mode;
+extern char lb_mode;
+extern char rb_mode;
 
 #endif // __MAIN_H__
